@@ -84,24 +84,24 @@ drwxr-xr-x+  4 beep_beep2643  beep_beep2643   128 Apr  2 19:03 Public
 
 **명령어 : mkdir test-dir**
 
-* total 16
-drwxr-x---+ 20 beep_beep2643  beep_beep2643   640 Apr  2 19:46 .
-drwxr-xr-x   7 root           admin           224 Apr  2 19:03 ..
--r--------   1 beep_beep2643  beep_beep2643     7 Apr  2 19:03 .CFUserTextEncoding
-drwx------+  2 beep_beep2643  beep_beep2643    64 Apr  2 19:04 .Trash
-drwxr-xr-x   5 beep_beep2643  beep_beep2643   160 Apr  2 19:04 .docker
-drwxr-xr-x  10 beep_beep2643  beep_beep2643   320 Apr  2 19:04 .orbstack
-drwxr-xr-x   3 beep_beep2643  beep_beep2643    96 Apr  2 19:04 .ssh
-drwxr-xr-x   3 beep_beep2643  beep_beep2643    96 Apr  2 19:04 .vscode
--rw-------   1 beep_beep2643  beep_beep2643   144 Apr  2 19:46 .zsh_history
-drwx------   9 beep_beep2643  beep_beep2643   288 Apr  2 19:46 .zsh_sessions
-drwx------+  3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Desktop
-drwx------+  3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Documents
-drwx------+  4 beep_beep2643  beep_beep2643   128 Apr  2 19:10 Downloads
-drwx------@ 78 beep_beep2643  beep_beep2643  2496 Apr  2 19:30 Library
-drwx------   3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Movies
-drwx------+  3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Music
-drwx------   4 beep_beep2643  beep_beep2643   160 Apr  2 19:04 OrbStack
+> total 16
+> drwxr-x---+ 20 beep_beep2643  beep_beep2643   640 Apr  2 19:46 .
+> drwxr-xr-x   7 root           admin           224 Apr  2 19:03 ..
+> -r--------   1 beep_beep2643  beep_beep2643     7 Apr  2 19:03 .CFUserTextEncoding
+> drwx------+  2 beep_beep2643  beep_beep2643    64 Apr  2 19:04 .Trash
+> drwxr-xr-x   5 beep_beep2643  beep_beep2643   160 Apr  2 19:04 .docker
+> drwxr-xr-x  10 beep_beep2643  beep_beep2643   320 Apr  2 19:04 .orbstack
+> drwxr-xr-x   3 beep_beep2643  beep_beep2643    96 Apr  2 19:04 .ssh
+> drwxr-xr-x   3 beep_beep2643  beep_beep2643    96 Apr  2 19:04 .vscode
+> -rw-------   1 beep_beep2643  beep_beep2643   144 Apr  2 19:46 .zsh_history
+> drwx------   9 beep_beep2643  beep_beep2643   288 Apr  2 19:46 .zsh_sessions
+> drwx------+  3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Desktop
+> drwx------+  3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Documents
+> drwx------+  4 beep_beep2643  beep_beep2643   128 Apr  2 19:10 Downloads
+> drwx------@ 78 beep_beep2643  beep_beep2643  2496 Apr  2 19:30 Library
+> drwx------   3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Movies
+> drwx------+  3 beep_beep2643  beep_beep2643    96 Apr  2 19:03 Music
+> drwx------   4 beep_beep2643  beep_beep2643   160 Apr  2 19:04 OrbStack
 drwx------+  4 beep_beep2643  beep_beep2643   128 Apr  2 19:03 Pictures
 drwxr-xr-x+  4 beep_beep2643  beep_beep2643   128 Apr  2 19:03 Public
 drwxr-xr-x   4 beep_beep2643  beep_beep2643   128 Apr  2 19:19 test-dir
@@ -439,13 +439,11 @@ WARNING: DOCKER_INSECURE_NO_IPTABLES_RAW is set
 > FROM nginx:latest
 > COPY ./my-website /usr/share/nginx/html
 
-* 별도의 웹 서버 설치 없이 정적 파일을 즉시 서비스 할 수 있어서 nginx 이미지를 베이스로 선택함. 이를 통해 Dockerfile에서 복잡한 환경 설정을 줄이고 빠르게 실행 가능한 컨테이너를 구성할 수 있음. 또한 nginx는 경량화되어 있고 정적 파일 서빙에 최적화 되어 있어 개발 및 테스트 환경에서 효율적으로 사용할 수 있음
+1. 별도의 웹 서버 설치 없이 정적 파일을 즉시 서비스 할 수 있어서 nginx 이미지를 베이스로 선택함. 이를 통해 Dockerfile에서 복잡한 환경 설정을 줄이고 빠르게 실행 가능한 컨테이너를 구성할 수 있음. 또한 nginx는 경량화되어 있고 정적 파일 서빙에 최적화 되어 있어 개발 및 테스트 환경에서 효율적으로 사용할 수 있음
 
-* COPY 명령어 사용 이유 : COPY 명령어를 사용하여 호스트의 my-website 디렉토리를 컨테이너 내부 /usr/share/nginx/html 경로로 복사함. 해당 경로는 nginx의 기본 웹 루트 디렉토리로, 별도의 설정 없이도 웹 페이지가 바로 서비스되도록 하기 위함임. 또한 이미지 빌드 시 정적 파일을 포함시킴으로써 어디서 실행하더라도 동일한 결과를 보장할 수 있도록 구성함
+2. COPY 명령어 사용 이유 : COPY 명령어를 사용하여 호스트의 my-website 디렉토리를 컨테이너 내부 /usr/share/nginx/html 경로로 복사함. 해당 경로는 nginx의 기본 웹 루트 디렉토리로, 별도의 설정 없이도 웹 페이지가 바로 서비스되도록 하기 위함임. 또한 이미지 빌드 시 정적 파일을 포함시킴으로써 어디서 실행하더라도 동일한 결과를 보장할 수 있도록 구성함
 
-
-
-
+3. Dockerfile을 사용하는 이유 : Dockerfile을 사용하면 환경을 코드로 정의할 수 있어 다른 환경에서도 동일한 방식으로 실행이 가능함. 이를 통해 개발 환경 차이로 발생하는 문제를 줄이고 재현 가능한 시스템을 만들 수 있음
 
 
 
@@ -510,6 +508,10 @@ EOF
 * CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                     NAMES
 * 58c46ee6d2a8   nginx:latest   "/docker-entrypoint.…"   11 minutes ago   Up 11 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   my-nginx
 * 6406e4767e05   ubuntu         "/bin/bash"              34 minutes ago   Up 22 minutes                                             my-ubuntu
+
+
+[pics](nginx.png)
+
 
 
 
