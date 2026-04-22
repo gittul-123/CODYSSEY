@@ -510,7 +510,7 @@ EOF
 * 6406e4767e05   ubuntu         "/bin/bash"              34 minutes ago   Up 22 minutes                                             my-ubuntu
 
 
-[pics](nginx.png)
+![pics](nginx.png)
 
 
 
